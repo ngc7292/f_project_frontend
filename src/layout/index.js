@@ -31,7 +31,7 @@ export default class BasicLayout extends Component {
         </Sider>
         
         <Layout >
-          <Header style={{ background: '#fff', textAlign: 'center', padding: 0 }}>Header</Header>
+          <Header style={{ background: '#fff', textAlign: 'center', padding: 0 }}>商业图谱</Header>
           <Content style={{ margin: '24px 16px 0' , width:'100%'}}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 ,width:'100%'}}>
               {this.props.children}

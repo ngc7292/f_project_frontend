@@ -11,15 +11,7 @@ export default {
     routes: [
       {
         path: '/',
-        component: './graph',
-      },
-      {
-        path: '/helloworld',
-        component: './puzzlecards'
-      },
-      { 
-        path: '/puzzlecards', 
-        component: './puzzlecards' 
+        component: './showinfo',
       },
     ]
   }],

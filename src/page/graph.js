@@ -2,7 +2,7 @@ import G6 from '@antv/g6';
 import {Card } from 'antd';
 import React from 'react';
 import Search from 'antd/lib/input/Search';
-
+import { Row, Col } from 'antd';
 
 export default class graphClass extends React.Component {
     constructor() {

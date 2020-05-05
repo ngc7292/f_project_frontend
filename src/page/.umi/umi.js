@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import findRoute, {
   getUrlQuery,
-} from '/Volumes/ngc_move/项目以及刷题/f_project/frontend/node_modules/_umi-build-dev@1.17.1@umi-build-dev/lib/findRoute.js';
+} from 'D:/project/f_project/frontend/node_modules/_umi-build-dev@1.18.5@umi-build-dev/lib/findRoute.js';
 
 // runtime plugins
 const plugins = require('umi/_runtimePlugin');
@@ -23,7 +23,7 @@ plugins.init({
   ],
 });
 plugins.use(
-  require('../../../node_modules/_umi-plugin-dva@1.11.0@umi-plugin-dva/lib/runtime'),
+  require('../../../node_modules/_umi-plugin-dva@1.11.3@umi-plugin-dva/lib/runtime'),
 );
 
 const app = require('@tmp/dva')._onCreate();

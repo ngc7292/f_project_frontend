@@ -19,23 +19,13 @@ const routes = [
     routes: [
       {
         path: '/',
-        component: require('../graph').default,
-        exact: true,
-      },
-      {
-        path: '/helloworld',
-        component: require('../puzzlecards').default,
-        exact: true,
-      },
-      {
-        path: '/puzzlecards',
-        component: require('../puzzlecards').default,
+        component: require('../showinfo').default,
         exact: true,
       },
       {
         component: () =>
           React.createElement(
-            require('/Volumes/ngc_move/项目以及刷题/f_project/frontend/node_modules/_umi-build-dev@1.17.1@umi-build-dev/lib/plugins/404/NotFound.js')
+            require('D:/project/f_project/frontend/node_modules/_umi-build-dev@1.18.5@umi-build-dev/lib/plugins/404/NotFound.js')
               .default,
             { pagesPath: 'src/page', hasRoutesInConfig: true },
           ),
@@ -45,7 +35,7 @@ const routes = [
   {
     component: () =>
       React.createElement(
-        require('/Volumes/ngc_move/项目以及刷题/f_project/frontend/node_modules/_umi-build-dev@1.17.1@umi-build-dev/lib/plugins/404/NotFound.js')
+        require('D:/project/f_project/frontend/node_modules/_umi-build-dev@1.18.5@umi-build-dev/lib/plugins/404/NotFound.js')
           .default,
         { pagesPath: 'src/page', hasRoutesInConfig: true },
       ),

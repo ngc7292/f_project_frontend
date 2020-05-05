@@ -20,7 +20,8 @@ export function _onCreate() {
     app.use(plugin);
   });
   
-  app.model({ namespace: 'puzzlecards', ...(require('/Volumes/ngc_move/项目以及刷题/f_project/frontend/src/model/puzzlecards.js').default) });
+  app.model({ namespace: 'puzzlecards', ...(require('D:/project/f_project/frontend/src/model/puzzlecards.js').default) });
+app.model({ namespace: 'relationinfo', ...(require('D:/project/f_project/frontend/src/model/relationinfo.js').default) });
   return app;
 }
 
