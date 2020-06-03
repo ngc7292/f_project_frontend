@@ -23,7 +23,7 @@ export default {
   effects: {
     *queryInitInfo(_, sagaEffects) {
       const { call, put } = sagaEffects;
-      const init_url = "http://127.0.0.1:5000/api/company/平安银行";
+      const init_url = "http://121.196.223.97:23333/api/company/平安银行";
 
       const answer = yield call(request, init_url);
 
@@ -32,7 +32,7 @@ export default {
     },
     *askNewQuestion({ payload:name }, sagaEffects){
       const {call, put} = sagaEffects;
-      const checkUrl = "http://127.0.0.1:5000/api/company/"+name;
+      const checkUrl = "http://121.196.223.97:23333/api/company/"+name;
 
       const answer = yield call(request, checkUrl);
       yield put({ type: 'updateNewData', payload: answer });
