@@ -21,9 +21,6 @@ insertCss(`
   }
 `);
 
-const div_css = {
-  display:"inline-block"
-}
 const calcStrLen = str => {
   let len = 0;
   for (let i = 0; i < str.length; i++) {
@@ -60,10 +57,18 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onDidMount: () => {
-      dispatch({
-        type: `${namespace}/queryInitInfo`,
-      });
+    onDidMount: (props) => {
+      console.log(location);
+      if (props.match.params['id']){
+        dispatch({
+          type: `${namespace}/askNewQuestion`,
+          payload: props.match.params['id'],
+        })
+      } else{
+        dispatch({
+          type: `${namespace}/queryInitInfo`,
+        });
+      }
     },
     onSearch: (name) =>{
       dispatch({
@@ -83,26 +88,23 @@ export default class ShowInfo extends Component {
     }
 
     componentDidMount() {
-        this.props.onDidMount();
-        console.log(this.props)
-        this.width = 750;
+        this.props.onDidMount(this.props);
+        console.log(this)
+        this.width = this.ref.current.clientWidth;
         this.hight = this.ref.current.clientHight || 630;
         this.graph_1 = this.initG6_c_p();
-        this.graph_2 = this.initG6_c_s();
         this.graph_1.render();
-        this.graph_2.render();
     };
 
     componentWillReceiveProps () {
         console.log(this.props);
         this.updateG6_c_p();
-        this.updateG6_c_s();
     }
 
     initG6_c_p() {
       const graph = new G6.Graph({
         container: 'graph',
-        width : this.width,
+        width : this.ref.current.clientWidth,
         height : this.hight || 500,
         layout: {
           type: 'force',
@@ -196,43 +198,6 @@ export default class ShowInfo extends Component {
       return graph;
     }
 
-    initG6_c_s() {
-      const graph = new G6.Graph({
-        container: 'graph_2',
-        width : this.width,
-        height : this.hight || 500,
-        layout: {
-          type: 'dagre',
-          nodesepFunc: d => {
-            return 1;
-          },
-          ranksep: 40,
-          controlPoints: true
-        },
-        defaultNode: {
-          type: 'sql',
-        },
-        defaultEdge: {
-          type: 'polyline',
-          style: {
-            radius: 30,
-            offset: 45,
-            endArrow: true,
-            lineWidth: 2,
-            stroke: '#C2C8D5',
-          },
-        },
-        modes: {
-          default: [
-            'drag-canvas',
-            'zoom-canvas',
-            'click-select'
-          ]
-        },
-      });
-
-      return graph;
-    };
 
     updateG6_c_p() {
       this.graph_1.changeData({
@@ -268,33 +233,12 @@ export default class ShowInfo extends Component {
       })
     };
 
-    updateG6_c_s() {
-      this.graph_2.changeData({
-        nodes: this.props.company_hold.nodes.map(function(node) {
-          node.id = String(node.id);
-          node.label = node.name;
-          node.type = 'rect';
-          if(node.flag == 1) node.size=50;
-          else node.size = 30;
-
-          node.label = fittingString(node.name,node.size,10);
-          return Object.assign({}, node);
-        }),
-        edges: this.props.company_hold.edges.map(function(edge) {
-          edge.source = String(edge.source);
-          edge.target = String(edge.target);
-          return Object.assign({}, edge);
-        }),
-      })
-    };
-
     render(){
         return (
             <Card>
                 <Search defaultValue="如：平安银行" onSearch={value => this.props.onSearch(value)}/>
                 <div>
-                  <div id="graph" ref={this.ref} style={div_css}></div>
-                  <div id="graph_2" ref={this.ref} style={div_css}></div>
+                  <div id="graph" ref={this.ref}></div>
                 </div>
             </Card>
         );

@@ -40,7 +40,6 @@ export default {
   },
   reducers: {
     updateNewData(state, { payload: newData }){
-      //console.log(JSON.parse(newData));
       var data = JSON.parse(newData);
       console.log(data);
       return {

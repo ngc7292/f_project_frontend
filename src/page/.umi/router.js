@@ -23,6 +23,16 @@ const routes = [
         exact: true,
       },
       {
+        path: '/showinfo/:id',
+        component: require('../showinfo').default,
+        exact: true,
+      },
+      {
+        path: '/showstock',
+        component: require('../showstock').default,
+        exact: true,
+      },
+      {
         component: () =>
           React.createElement(
             require('D:/project/f_project/frontend/node_modules/_umi-build-dev@1.18.5@umi-build-dev/lib/plugins/404/NotFound.js')

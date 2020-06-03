@@ -13,6 +13,14 @@ export default {
         path: '/',
         component: './showinfo',
       },
+      {
+        path: '/showinfo/:id',
+        component: './showinfo',
+      },
+      {
+        path: '/showstock',
+        component: './showstock',
+      },
     ]
   }],
   singular: true,

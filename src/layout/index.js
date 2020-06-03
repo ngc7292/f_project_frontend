@@ -12,26 +12,25 @@ export default class BasicLayout extends Component {
     return (
       <Layout>
         <Sider width={256} style={{ minHeight: '100vh' }}>
-          <div style={{ height: '32px', background: 'rgba(255,255,255,.2)', margin: '16px'}}/>
+          <div style={{ height: '32px', background: 'rgba(255,255,255,.2)', margin: '16px'}}></div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
-              <Link to="/puzzlecards">
+              <Link to="/">
                 <Icon type="pie-chart" />
                 <span>知识图谱查询</span>
               </Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link to="/earth">
+              <Link to="/showstock">
                 <MenuUnfoldOutlined />
-                <span>公告解析</span>
+                <span>股权解析</span>
               </Link>
             </Menu.Item>
-            
           </Menu>
         </Sider>
         
         <Layout >
-          <Header style={{ background: '#fff', textAlign: 'center', padding: 0 }}>商业图谱</Header>
+          <Header style={{ background: '#fff', textAlign: 'center', padding: 0 }}>ngc7293's 金融知识提取系统</Header>
           <Content style={{ margin: '24px 16px 0' , width:'100%'}}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 ,width:'100%'}}>
               {this.props.children}
